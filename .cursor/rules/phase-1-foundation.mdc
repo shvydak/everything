@@ -1,4 +1,3 @@
-
 # Phase 1: Foundation (Week 1-2)
 
 ## 🎯 Learning Objectives
@@ -754,12 +753,14 @@ const getUserWithCache = async (req: Request, res: Response) => {
 **Goal:** Create a basic Express.js API with TypeScript
 
 **Requirements:**
+
 - Create calculator endpoints (add, subtract, multiply, divide)
 - Use TypeScript interfaces for request/response
 - Implement error handling for division by zero
 - Add input validation
 
 **Learning Outcomes:**
+
 - TypeScript types and interfaces
 - Express.js routing
 - Error handling patterns
@@ -770,12 +771,14 @@ const getUserWithCache = async (req: Request, res: Response) => {
 **Goal:** Build a simple user CRUD system
 
 **Requirements:**
+
 - Create User model with Mongoose
 - Implement CRUD operations (Create, Read, Update, Delete)
 - Add basic validation
 - Use Redis for caching user data
 
 **Learning Outcomes:**
+
 - MongoDB with Mongoose
 - Schema design
 - CRUD operations
@@ -786,6 +789,7 @@ const getUserWithCache = async (req: Request, res: Response) => {
 **Goal:** Integrate with external API and apply best practices
 
 **Requirements:**
+
 - Create weather API client
 - Implement caching with Redis
 - Add proper error handling
@@ -793,6 +797,7 @@ const getUserWithCache = async (req: Request, res: Response) => {
 - Add logging
 
 **Learning Outcomes:**
+
 - External API integration
 - Caching strategies
 - Environment configuration

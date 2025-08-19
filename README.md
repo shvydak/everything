@@ -85,13 +85,15 @@ yarn dev
 ### Phase 1: Foundation (Week 1-2)
 
 **Day 1-2: TypeScript Fundamentals**
+
 - [ ] Basic types and interfaces
-- [ ] Functions and arrow functions  
+- [ ] Functions and arrow functions
 - [ ] Classes and objects
 - [ ] Generics and utility types
 - [ ] TypeScript configuration
 
 **Day 3-4: Express.js Basics**
+
 - [ ] Server setup and middleware
 - [ ] Routing and HTTP methods
 - [ ] Request/Response handling
@@ -99,6 +101,7 @@ yarn dev
 - [ ] Security middleware (Helmet, CORS)
 
 **Day 5-6: Database Connections**
+
 - [ ] MongoDB with Mongoose
 - [ ] Schema design and validation
 - [ ] Basic CRUD operations
@@ -106,6 +109,7 @@ yarn dev
 - [ ] Connection management
 
 **Day 7-8: Project Structure & Best Practices**
+
 - [ ] Folder organization
 - [ ] Environment configuration
 - [ ] Error handling strategies
