@@ -17,6 +17,7 @@ learning-fullstack-app/
 ## 🛠️ Technology Stack
 
 ### Backend
+
 - **Node.js** - JavaScript runtime
 - **Express.js** - Web framework
 - **TypeScript** - Type-safe JavaScript
@@ -26,6 +27,7 @@ learning-fullstack-app/
 - **Joi/Zod** - Data validation
 
 ### Frontend
+
 - **React** - UI library
 - **TypeScript** - Type safety
 - **Vite** - Build tool
@@ -34,6 +36,7 @@ learning-fullstack-app/
 - **React Router** - Navigation
 
 ### Development Tools
+
 - **Yarn** - Package manager
 - **ESLint** - Code linting
 - **Prettier** - Code formatting
@@ -43,7 +46,8 @@ learning-fullstack-app/
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - Yarn package manager
 - MongoDB (local or cloud)
 - Redis (local or cloud)
@@ -51,23 +55,27 @@ learning-fullstack-app/
 ### Installation
 
 1. Clone the repository:
+
 ```bash
 git clone <your-repo-url>
 cd learning-fullstack-app
 ```
 
 2. Install dependencies:
+
 ```bash
 yarn install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp backend/.env.example backend/.env
 cp frontend/.env.example frontend/.env
 ```
 
 4. Start development servers:
+
 ```bash
 yarn dev
 ```
@@ -75,34 +83,65 @@ yarn dev
 ## 📚 Learning Path
 
 ### Phase 1: Foundation (Week 1-2)
-- [ ] TypeScript basics
-- [ ] Express.js server setup
-- [ ] MongoDB connection
+
+**Day 1-2: TypeScript Fundamentals**
+- [ ] Basic types and interfaces
+- [ ] Functions and arrow functions  
+- [ ] Classes and objects
+- [ ] Generics and utility types
+- [ ] TypeScript configuration
+
+**Day 3-4: Express.js Basics**
+- [ ] Server setup and middleware
+- [ ] Routing and HTTP methods
+- [ ] Request/Response handling
+- [ ] Error handling patterns
+- [ ] Security middleware (Helmet, CORS)
+
+**Day 5-6: Database Connections**
+- [ ] MongoDB with Mongoose
+- [ ] Schema design and validation
 - [ ] Basic CRUD operations
+- [ ] Redis for caching
+- [ ] Connection management
+
+**Day 7-8: Project Structure & Best Practices**
+- [ ] Folder organization
+- [ ] Environment configuration
+- [ ] Error handling strategies
+- [ ] Logging and debugging
+- [ ] Code quality tools
 
 ### Phase 2: Backend Development (Week 3-4)
+
 - [ ] Authentication & Authorization
-- [ ] Input validation
-- [ ] Error handling
-- [ ] API documentation
+- [ ] Input Validation
+- [ ] Advanced Express.js Features
+- [ ] API Documentation
+- [ ] Testing Strategies
+- [ ] Performance Optimization
 
 ### Phase 3: Frontend Development (Week 5-6)
+
 - [ ] React with TypeScript
-- [ ] State management
-- [ ] API integration
-- [ ] Component architecture
+- [ ] State Management
+- [ ] API Integration
+- [ ] Component Architecture
+- [ ] UI/UX Best Practices
 
 ### Phase 4: Integration & Testing (Week 7-8)
-- [ ] Full-stack integration
-- [ ] Testing strategies
-- [ ] Performance optimization
-- [ ] Security implementation
+
+- [ ] Full-stack Integration
+- [ ] Testing Strategies
+- [ ] Performance Optimization
+- [ ] Security Implementation
 
 ### Phase 5: Deployment & Production (Week 9-10)
-- [ ] Docker containerization
-- [ ] Production deployment
-- [ ] Monitoring and logging
-- [ ] Maintenance
+
+- [ ] Docker Containerization
+- [ ] Production Deployment
+- [ ] Monitoring and Logging
+- [ ] Maintenance and Updates
 
 ## 🎓 Learning Approach
 
@@ -141,6 +180,7 @@ This project follows a **hands-on, incremental learning approach**:
 ## 🤝 Contributing
 
 This is a learning project, so feel free to:
+
 - Ask questions
 - Experiment with code
 - Suggest improvements

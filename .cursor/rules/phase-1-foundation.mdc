@@ -1,6 +1,3 @@
----
-alwaysApply: true
----
 
 # Phase 1: Foundation (Week 1-2)
 
@@ -568,12 +565,12 @@ Practice with utility types and advanced TypeScript features:
 ```typescript
 // Utility types example
 interface User {
-  id: number
-  name: string
-  email: string
-  password: string
-  createdAt: Date
-  updatedAt: Date
+     id: number
+     name: string
+     email: string
+     password: string
+     createdAt: Date
+     updatedAt: Date
 }
 
 // Omit utility type - exclude password from public user
@@ -590,8 +587,8 @@ type UserRoles = Record<string, 'admin' | 'user' | 'moderator'>
 
 // Function to transform user data
 function createPublicUser(user: User): PublicUser {
-  const { password, ...publicUser } = user
-  return publicUser
+     const {password, ...publicUser} = user
+     return publicUser
 }
 ```
 
@@ -602,31 +599,31 @@ Create a custom middleware chain:
 ```typescript
 // Custom middleware for logging
 const requestLogger = (req: Request, res: Response, next: NextFunction) => {
-  console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`)
-  next()
+     console.log(`${new Date().toISOString()} - ${req.method} ${req.path}`)
+     next()
 }
 
 // Custom middleware for timing
 const requestTimer = (req: Request, res: Response, next: NextFunction) => {
-  const start = Date.now()
-  res.on('finish', () => {
-    const duration = Date.now() - start
-    console.log(`${req.method} ${req.path} - ${duration}ms`)
-  })
-  next()
+     const start = Date.now()
+     res.on('finish', () => {
+          const duration = Date.now() - start
+          console.log(`${req.method} ${req.path} - ${duration}ms`)
+     })
+     next()
 }
 
 // Custom middleware for authentication check
 const requireAuth = (req: Request, res: Response, next: NextFunction) => {
-  const token = req.headers.authorization?.split(' ')[1]
-  
-  if (!token) {
-    return res.status(401).json({ error: 'Authentication required' })
-  }
-  
-  // Verify token logic here
-  req.user = { id: 1, name: 'John' } // Mock user
-  next()
+     const token = req.headers.authorization?.split(' ')[1]
+
+     if (!token) {
+          return res.status(401).json({error: 'Authentication required'})
+     }
+
+     // Verify token logic here
+     req.user = {id: 1, name: 'John'} // Mock user
+     next()
 }
 
 // Apply middleware chain
@@ -635,7 +632,7 @@ app.use(requestTimer)
 
 // Protected routes
 app.get('/api/profile', requireAuth, (req: Request, res: Response) => {
-  res.json({ user: req.user })
+     res.json({user: req.user})
 })
 ```
 
@@ -646,33 +643,33 @@ Practice with MongoDB aggregation:
 ```typescript
 // Complex user analytics query
 const getUserAnalytics = async () => {
-  const analytics = await User.aggregate([
-    // Match active users
-    { $match: { isActive: true } },
-    
-    // Group by role
-    { 
-      $group: { 
-        _id: '$role',
-        count: { $sum: 1 },
-        avgAge: { $avg: '$age' }
-      }
-    },
-    
-    // Sort by count
-    { $sort: { count: -1 } },
-    
-    // Project final format
-    {
-      $project: {
-        role: '$_id',
-        userCount: '$count',
-        averageAge: { $round: ['$avgAge', 2] }
-      }
-    }
-  ])
-  
-  return analytics
+     const analytics = await User.aggregate([
+          // Match active users
+          {$match: {isActive: true}},
+
+          // Group by role
+          {
+               $group: {
+                    _id: '$role',
+                    count: {$sum: 1},
+                    avgAge: {$avg: '$age'},
+               },
+          },
+
+          // Sort by count
+          {$sort: {count: -1}},
+
+          // Project final format
+          {
+               $project: {
+                    role: '$_id',
+                    userCount: '$count',
+                    averageAge: {$round: ['$avgAge', 2]},
+               },
+          },
+     ])
+
+     return analytics
 }
 
 // Usage
@@ -691,64 +688,115 @@ Implement a caching strategy with Redis:
 ```typescript
 // Cache service
 class CacheService {
-  private redis: RedisClientType
-  
-  constructor(redis: RedisClientType) {
-    this.redis = redis
-  }
-  
-  // Cache user data
-  async cacheUser(userId: string, userData: any, ttl: number = 3600) {
-    const key = `user:${userId}`
-    await this.redis.setEx(key, ttl, JSON.stringify(userData))
-  }
-  
-  // Get cached user data
-  async getCachedUser(userId: string) {
-    const key = `user:${userId}`
-    const data = await this.redis.get(key)
-    return data ? JSON.parse(data) : null
-  }
-  
-  // Invalidate cache
-  async invalidateUser(userId: string) {
-    const key = `user:${userId}`
-    await this.redis.del(key)
-  }
-  
-  // Cache with pattern
-  async cacheWithPattern(pattern: string, data: any, ttl: number = 3600) {
-    const key = `cache:${pattern}:${Date.now()}`
-    await this.redis.setEx(key, ttl, JSON.stringify(data))
-    return key
-  }
+     private redis: RedisClientType
+
+     constructor(redis: RedisClientType) {
+          this.redis = redis
+     }
+
+     // Cache user data
+     async cacheUser(userId: string, userData: any, ttl: number = 3600) {
+          const key = `user:${userId}`
+          await this.redis.setEx(key, ttl, JSON.stringify(userData))
+     }
+
+     // Get cached user data
+     async getCachedUser(userId: string) {
+          const key = `user:${userId}`
+          const data = await this.redis.get(key)
+          return data ? JSON.parse(data) : null
+     }
+
+     // Invalidate cache
+     async invalidateUser(userId: string) {
+          const key = `user:${userId}`
+          await this.redis.del(key)
+     }
+
+     // Cache with pattern
+     async cacheWithPattern(pattern: string, data: any, ttl: number = 3600) {
+          const key = `cache:${pattern}:${Date.now()}`
+          await this.redis.setEx(key, ttl, JSON.stringify(data))
+          return key
+     }
 }
 
 // Usage in controller
 const getUserWithCache = async (req: Request, res: Response) => {
-  const { id } = req.params
-  const cacheService = new CacheService(redisClient)
-  
-  // Try to get from cache first
-  let user = await cacheService.getCachedUser(id)
-  
-  if (!user) {
-    // Get from database
-    user = await User.findById(id)
-    
-    if (user) {
-      // Cache for 1 hour
-      await cacheService.cacheUser(id, user, 3600)
-    }
-  }
-  
-  if (!user) {
-    return res.status(404).json({ error: 'User not found' })
-  }
-  
-  res.json({ user })
+     const {id} = req.params
+     const cacheService = new CacheService(redisClient)
+
+     // Try to get from cache first
+     let user = await cacheService.getCachedUser(id)
+
+     if (!user) {
+          // Get from database
+          user = await User.findById(id)
+
+          if (user) {
+               // Cache for 1 hour
+               await cacheService.cacheUser(id, user, 3600)
+          }
+     }
+
+     if (!user) {
+          return res.status(404).json({error: 'User not found'})
+     }
+
+     res.json({user})
 }
 ```
+
+## 🎯 Mini-Projects for Phase 1
+
+### Project 1: Simple Calculator API (Day 2-3)
+
+**Goal:** Create a basic Express.js API with TypeScript
+
+**Requirements:**
+- Create calculator endpoints (add, subtract, multiply, divide)
+- Use TypeScript interfaces for request/response
+- Implement error handling for division by zero
+- Add input validation
+
+**Learning Outcomes:**
+- TypeScript types and interfaces
+- Express.js routing
+- Error handling patterns
+- Input validation
+
+### Project 2: User Management System (Day 5-6)
+
+**Goal:** Build a simple user CRUD system
+
+**Requirements:**
+- Create User model with Mongoose
+- Implement CRUD operations (Create, Read, Update, Delete)
+- Add basic validation
+- Use Redis for caching user data
+
+**Learning Outcomes:**
+- MongoDB with Mongoose
+- Schema design
+- CRUD operations
+- Redis caching
+
+### Project 3: Weather API Integration (Day 7-8)
+
+**Goal:** Integrate with external API and apply best practices
+
+**Requirements:**
+- Create weather API client
+- Implement caching with Redis
+- Add proper error handling
+- Use environment variables
+- Add logging
+
+**Learning Outcomes:**
+- External API integration
+- Caching strategies
+- Environment configuration
+- Logging and debugging
 
 ## 📚 Additional Resources
 
@@ -757,5 +805,8 @@ const getUserWithCache = async (req: Request, res: Response) => {
 - [Mongoose Documentation](https://mongoosejs.com/docs/)
 - [Redis Documentation](https://redis.io/documentation)
 - [TypeScript Utility Types](https://www.typescriptlang.org/docs/handbook/utility-types.html)
+- [MongoDB Aggregation](https://docs.mongodb.com/manual/aggregation/)
+- [Redis Patterns](https://redis.io/topics/patterns)
+
 - [MongoDB Aggregation](https://docs.mongodb.com/manual/aggregation/)
 - [Redis Patterns](https://redis.io/topics/patterns)
