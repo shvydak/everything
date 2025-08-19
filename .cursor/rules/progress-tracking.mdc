@@ -1,0 +1,195 @@
+# Learning Progress Tracking Strategy
+
+## 🎯 Automatic Progress Monitoring Rules
+
+### Core Principle
+Always monitor user's learning progress and automatically update `.cursor/rules/learning-progress.mdc` based on:
+- Code changes and file creation
+- User questions and understanding level
+- Completed learning sessions
+- Practical implementations
+
+## 📊 Progress Tracking Triggers
+
+### 1. File Creation & Code Changes
+
+#### TypeScript Learning Indicators:
+- **Created:** `*.ts` files with types/interfaces → Update "TypeScript Fundamentals"
+- **Added:** Type annotations, interfaces, enums → Mark "Basic types and interfaces" ✅
+- **Implemented:** Generics, utility types → Mark "Generics and utility types" ✅
+- **Used:** Classes, inheritance → Mark "Classes and objects" ✅
+
+#### Express.js Learning Indicators:
+- **Created:** `routes/*.ts` files → Update "Express.js Basics"
+- **Added:** Middleware functions → Mark "Server setup and middleware" ✅
+- **Implemented:** HTTP methods (GET, POST, etc.) → Mark "Routing and HTTP methods" ✅
+- **Used:** Request/Response handling → Mark "Request/Response handling" ✅
+
+#### Database Learning Indicators:
+- **Created:** `models/*.ts` files → Update "Database Connections"
+- **Added:** Mongoose schemas → Mark "MongoDB with Mongoose" ✅
+- **Implemented:** CRUD operations → Mark "Basic CRUD operations" ✅
+- **Used:** Redis operations → Mark "Redis for caching" ✅
+
+#### Authentication Learning Indicators:
+- **Created:** `controllers/auth.ts` → Update "Authentication & Authorization"
+- **Added:** JWT middleware → Mark "Authentication & Authorization" ✅
+- **Implemented:** User registration/login → Mark "Authentication & Authorization" ✅
+
+### 2. User Understanding Assessment
+
+#### Questions & Comprehension:
+- **User asks:** "Как работает TypeScript?" → Still learning TypeScript basics
+- **User asks:** "Что такое middleware?" → Still learning Express.js concepts
+- **User asks:** "Как создать API endpoint?" → Ready for routing practice
+- **User asks:** "Как подключить базу данных?" → Ready for database learning
+
+#### Code Review & Feedback:
+- **User struggles with:** TypeScript errors → Need more TypeScript practice
+- **User successfully:** Fixes TypeScript issues → Mark TypeScript progress ✅
+- **User implements:** Working endpoints → Mark Express.js progress ✅
+- **User creates:** Database models → Mark MongoDB progress ✅
+
+### 3. Learning Session Completion
+
+#### Session Indicators:
+- **User says:** "Я понял как работают типы" → Mark TypeScript types ✅
+- **User says:** "Я изучил middleware" → Mark Express.js middleware ✅
+- **User says:** "Я создал первую модель" → Mark MongoDB schemas ✅
+- **User says:** "Я настроил аутентификацию" → Mark Auth progress ✅
+
+## 🔄 Automatic Update Rules
+
+### When to Update Progress:
+1. **After file creation** - Immediately update relevant learning topics
+2. **After code implementation** - Mark specific concepts as completed
+3. **After user confirmation** - When user says they understand something
+4. **After successful testing** - When code works as expected
+5. **After learning session** - Summarize progress at end of session
+
+### How to Update Progress:
+1. **Find relevant topic** in `learning-progress.mdc`
+2. **Change checkbox** from `[ ]` to `[x]` with ✅
+3. **Update progress percentage** - Recalculate based on completed topics
+4. **Update current focus** - What to study next
+5. **Update last modified date** - Track when progress was updated
+
+### Progress Calculation:
+- **Phase 1:** 8 total topics → Each topic = 12.5%
+- **Phase 2:** 6 total topics → Each topic = 16.67%
+- **Phase 3:** 5 total topics → Each topic = 20%
+- **Phase 4:** 4 total topics → Each topic = 25%
+- **Phase 5:** 4 total topics → Each topic = 25%
+
+## 📝 Update Examples
+
+### Example 1: TypeScript Progress
+```
+User creates: backend/src/types/user.ts
+Action: Update learning-progress.mdc
+- [x] Basic types and interfaces ✅
+- [x] Functions and arrow functions ✅
+- [ ] Classes and objects
+- [ ] Generics and utility types
+Progress: 25% (2/8 Phase 1 topics)
+```
+
+### Example 2: Express.js Progress
+```
+User creates: backend/src/routes/auth.ts
+Action: Update learning-progress.mdc
+- [x] Server setup and middleware ✅
+- [x] Routing and HTTP methods ✅
+- [x] Request/Response handling ✅
+- [ ] Error handling patterns
+- [ ] Security middleware (Helmet, CORS)
+Progress: 60% (3/5 Express.js topics)
+```
+
+### Example 3: Database Progress
+```
+User creates: backend/src/models/User.ts
+Action: Update learning-progress.mdc
+- [x] MongoDB with Mongoose ✅
+- [x] Schema design and validation ✅
+- [ ] Basic CRUD operations
+- [ ] Redis for caching
+- [ ] Connection management
+Progress: 40% (2/5 Database topics)
+```
+
+## 🎯 Learning Phase Transitions
+
+### Phase 1 → Phase 2:
+**Trigger:** All Phase 1 topics completed
+**Action:** 
+- Update status to "Phase 2: Backend Development - IN PROGRESS"
+- Reset progress to 0% for Phase 2
+- Update current focus to "Authentication & Authorization"
+
+### Phase 2 → Phase 3:
+**Trigger:** All Phase 2 topics completed
+**Action:**
+- Update status to "Phase 3: Frontend Development - IN PROGRESS"
+- Reset progress to 0% for Phase 3
+- Update current focus to "React with TypeScript"
+
+## 📊 Progress Monitoring Commands
+
+### Automatic Monitoring:
+- **File creation:** Monitor new `*.ts`, `*.js`, `*.json` files
+- **Code changes:** Monitor significant code additions/modifications
+- **User interactions:** Monitor questions and understanding level
+- **Testing:** Monitor successful test runs and deployments
+
+### Manual Updates:
+- **User requests:** "Update my progress"
+- **Session end:** "Summarize what I learned today"
+- **Milestone reached:** "I completed this topic"
+
+## 🔍 Progress Validation
+
+### Quality Checks:
+- **Code quality:** Ensure created code follows best practices
+- **Understanding:** Verify user can explain concepts
+- **Implementation:** Confirm features work correctly
+- **Testing:** Validate with actual testing
+
+### Progress Accuracy:
+- **Don't mark complete** if user struggles with concept
+- **Require confirmation** for complex topics
+- **Verify understanding** before marking as complete
+- **Allow revisiting** topics if needed
+
+## 📈 Success Metrics
+
+### Learning Success Indicators:
+- **Code compiles** without TypeScript errors
+- **Features work** as expected
+- **User can explain** concepts in their own words
+- **User can apply** knowledge to new problems
+- **User shows confidence** in using learned concepts
+
+### Progress Milestones:
+- **25% complete:** Basic understanding achieved
+- **50% complete:** Practical implementation working
+- **75% complete:** Advanced concepts understood
+- **100% complete:** Mastery of topic demonstrated
+
+## 🎓 Adaptive Learning
+
+### Adjust Based on:
+- **User pace:** Speed up or slow down as needed
+- **Difficulty level:** Provide more examples for challenging concepts
+- **Learning style:** Adapt explanations to user preferences
+- **Prior knowledge:** Build on existing understanding
+
+### Personalized Progress:
+- **Custom topics:** Add specific topics user wants to learn
+- **Skip familiar:** Mark topics user already knows
+- **Focus areas:** Emphasize topics user finds challenging
+- **Real-world projects:** Apply learning to practical scenarios
+description:
+globs:
+alwaysApply: false
+---
