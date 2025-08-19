@@ -1,0 +1,148 @@
+# Learning Plan & Development Rules
+
+## Project Overview
+Building a full-stack web application using modern technologies and best practices:
+- **Backend**: Node.js + Express + TypeScript
+- **Frontend**: React + TypeScript
+- **Database**: MongoDB + Redis
+- **Package Manager**: Yarn
+- **Testing**: Playwright (already familiar)
+- **Deployment**: Raspberry Pi 5 with Cloudflare Tunnel
+
+## Learning Objectives
+1. Understand modern web development architecture
+2. Master TypeScript for both frontend and backend
+3. Learn Express.js server development
+4. Build React applications with best practices
+5. Work with MongoDB and Redis
+6. Implement proper testing strategies
+7. Deploy and maintain production applications
+
+## Development Rules & Best Practices
+
+### 1. Code Quality & Standards
+- Use TypeScript for all new code
+- Follow ESLint and Prettier configurations
+- Write meaningful commit messages
+- Use conventional commits format
+- Document all functions and complex logic
+- Keep functions small and focused (max 20-30 lines)
+
+### 2. Project Structure
+- Separate frontend and backend into different directories
+- Use feature-based folder organization
+- Implement proper separation of concerns
+- Follow the principle of least privilege
+- Use environment variables for configuration
+
+### 3. TypeScript Best Practices
+- Always define proper types and interfaces
+- Avoid `any` type - use proper typing
+- Use utility types when appropriate
+- Implement proper error handling with typed errors
+- Use strict TypeScript configuration
+
+### 4. Express.js Best Practices
+- Use middleware for cross-cutting concerns
+- Implement proper error handling middleware
+- Use async/await for database operations
+- Validate input data with libraries like Joi or Zod
+- Implement proper logging
+- Use helmet for security headers
+- Rate limiting for API endpoints
+
+### 5. React Best Practices
+- Use functional components with hooks
+- Implement proper state management
+- Use React.memo for performance optimization
+- Follow the single responsibility principle
+- Implement proper error boundaries
+- Use TypeScript for all components and props
+
+### 6. Database Best Practices
+- Use connection pooling for MongoDB
+- Implement proper indexing strategies
+- Use transactions when needed
+- Implement proper error handling for database operations
+- Use Redis for caching and session management
+- Implement data validation at the database level
+
+### 7. Testing Strategy
+- Write unit tests for business logic
+- Implement integration tests for API endpoints
+- Use Playwright for E2E testing
+- Maintain good test coverage
+- Use test-driven development when appropriate
+
+### 8. Security Best Practices
+- Validate and sanitize all inputs
+- Use HTTPS in production
+- Implement proper authentication and authorization
+- Use environment variables for sensitive data
+- Regular security updates for dependencies
+- Implement CORS properly
+
+### 9. Performance Best Practices
+- Use Redis for caching
+- Implement proper database queries
+- Use compression middleware
+- Optimize bundle sizes
+- Implement lazy loading where appropriate
+
+### 10. Deployment & DevOps
+- Use Docker for containerization
+- Implement proper logging and monitoring
+- Use environment-specific configurations
+- Implement proper backup strategies
+- Use CI/CD pipelines
+
+## Learning Phases
+
+### Phase 1: Foundation (Week 1-2)
+- Set up development environment
+- Learn TypeScript basics
+- Create basic Express server
+- Set up MongoDB connection
+- Basic CRUD operations
+
+### Phase 2: Backend Development (Week 3-4)
+- Advanced Express features
+- Authentication and authorization
+- Input validation
+- Error handling
+- API documentation
+
+### Phase 3: Frontend Development (Week 5-6)
+- React basics with TypeScript
+- State management
+- API integration
+- Component architecture
+- UI/UX best practices
+
+### Phase 4: Integration & Testing (Week 7-8)
+- Full-stack integration
+- Testing strategies
+- Performance optimization
+- Security implementation
+
+### Phase 5: Deployment & Production (Week 9-10)
+- Docker containerization
+- Production deployment
+- Monitoring and logging
+- Maintenance and updates
+
+## Teaching Approach
+- Explain concepts before implementation
+- Provide context for why we use specific patterns
+- Show real-world examples and use cases
+- Encourage questions and exploration
+- Build incrementally with working code at each step
+- Focus on understanding over memorization
+
+## Code Review Guidelines
+- Review for best practices adherence
+- Check for security vulnerabilities
+- Ensure proper error handling
+- Verify TypeScript usage
+- Confirm testing coverage
+- Validate performance considerations
