@@ -1,3 +1,7 @@
+---
+alwaysApply: true
+---
+
 # Learning Progress Tracking Strategy
 
 ## 🎯 Automatic Progress Monitoring Rules
@@ -175,6 +179,7 @@ Progress: 10% (2/20 Phase 1 topics)
 - **User requests:** "Update my progress"
 - **Session end:** "Summarize what I learned today"
 - **Milestone reached:** "I completed this topic"
+- **Git operations:** Only when user explicitly requests commits/pushes
 
 ### Interactive Commands:
 
