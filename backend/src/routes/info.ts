@@ -1,14 +1,8 @@
 import {Router} from 'express'
+import {getServerInfo} from '@/controllers/infoController'
 
 const router = Router()
 
-router.get('/info', (_req, res) => {
-    res.json({
-        status: 'running',
-        timestamp: new Date().toISOString(),
-        uptime: process.uptime(),
-        version: '1.0.0',
-    })
-})
+router.get('/info', getServerInfo)
 
 export default router
