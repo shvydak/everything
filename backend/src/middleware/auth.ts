@@ -2,16 +2,15 @@ import {Request, Response, NextFunction} from 'express'
 import jwt from 'jsonwebtoken'
 import {serverConfig} from '@/config'
 import {User} from '@/models/User'
-import {AppError} from '@/types'
-import {AuthenticatedRequest} from '@/types'
+import {AppError, AuthenticatedRequest} from '@/types'
 
 /**
  * Authentication middleware
  * Validates JWT token and attaches user to request object
  */
 export const authenticate = async (
-    req: AuthenticatedRequest,
-    res: Response,
+    req: Request,
+    _res: Response,
     next: NextFunction
 ): Promise<void> => {
     try {
@@ -45,7 +44,7 @@ export const authenticate = async (
         }
 
         // Attach user to request object
-        req.user = user as any
+        ;(req as any).user = user as any
         next()
     } catch (error) {
         if (error instanceof jwt.JsonWebTokenError) {
@@ -63,7 +62,7 @@ export const authenticate = async (
  * Checks if user has required role
  */
 export const authorize = (...roles: string[]) => {
-    return (req: AuthenticatedRequest, res: Response, next: NextFunction): void => {
+    return (req: AuthenticatedRequest, _res: Response, next: NextFunction): void => {
         if (!req.user) {
             next(new AppError('User not authenticated.', 401))
             return
@@ -84,7 +83,7 @@ export const authorize = (...roles: string[]) => {
  */
 export const optionalAuth = async (
     req: AuthenticatedRequest,
-    res: Response,
+    _res: Response,
     next: NextFunction
 ): Promise<void> => {
     try {

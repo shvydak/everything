@@ -30,6 +30,6 @@ export const deleteUser = async (id: string): Promise<IUserDocument | null> => {
 }
 
 export const getUserByEmail = async (email: string): Promise<IUserDocument | null> => {
-    const user = await User.findOne({email})
+    const user = await User.findOne({email}).select('+password')
     return user
 }

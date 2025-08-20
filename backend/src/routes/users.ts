@@ -6,15 +6,18 @@ import {
     updateUserHandler,
     deleteUserHandler,
     getUserByEmailHandler,
+    loginUser,
 } from '../controllers/userController'
+import {authenticate} from '@/middleware/auth'
 
 const router = Router()
 
 router.post('/register', registerUser)
-router.get('/', getAllUsersHandler)
-router.get('/:id', getUserByIdHandler)
-router.get('/:email', getUserByEmailHandler)
-router.put('/:id', updateUserHandler)
-router.delete('/:id', deleteUserHandler)
+router.post('/login', loginUser)
+router.get('/', authenticate, getAllUsersHandler)
+router.get('/:id', authenticate, getUserByIdHandler)
+router.get('/email/:email', authenticate, getUserByEmailHandler)
+router.put('/:id', authenticate, updateUserHandler)
+router.delete('/:id', authenticate, deleteUserHandler)
 
 export default router
