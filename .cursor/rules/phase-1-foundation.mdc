@@ -9,6 +9,31 @@ By the end of this phase, you will understand:
 - MongoDB connection and basic operations
 - Project structure and development workflow
 
+## 🎓 How to Work with This Guide
+
+### Your Learning Approach:
+
+1. **Read the explanation** - understand the concept first
+2. **Look at the examples** - see how it works in practice
+3. **Write your own code** - implement it yourself
+4. **Experiment** - try different approaches
+5. **Ask questions** - if something isn't clear
+
+### Important Rules:
+
+- **You write the code** - I only explain and guide
+- **Make mistakes** - that's how you learn best
+- **Ask for help** - when you're stuck, not when you want a solution
+- **Explain back** - tell me how you understand the concept
+- **Practice** - the more you code, the better you learn
+
+### When You Need Help:
+
+- **"I don't understand this concept"** - I'll explain it differently
+- **"My code doesn't work"** - I'll help you debug
+- **"Is this the right approach?"** - I'll review your code
+- **"What's the next step?"** - I'll guide you forward
+
 ## 📚 Day 1-2: TypeScript Fundamentals
 
 ### What is TypeScript?

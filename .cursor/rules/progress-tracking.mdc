@@ -58,6 +58,14 @@ Always monitor user's learning progress and automatically update `.cursor/rules/
 - **User implements:** Working endpoints → Mark Express.js progress ✅
 - **User creates:** Database models → Mark MongoDB progress ✅
 
+#### Hands-on Learning Indicators:
+
+- **User writes code:** Creates new files/functions → Active learning in progress
+- **User experiments:** Tries different approaches → Deep understanding building
+- **User asks for review:** Shows code for feedback → Ready for next level
+- **User explains concepts:** Describes how things work → Mastery demonstrated
+- **User makes mistakes:** Learns from errors → Natural learning process
+
 ### 3. Learning Session Completion
 
 #### Session Indicators:
