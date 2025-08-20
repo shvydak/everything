@@ -13,9 +13,7 @@ import {redisConnection} from '@/utils/redis'
 import {errorHandler, notFoundHandler} from '@/middleware/errorHandler'
 
 import infoRoutes from '@/routes/info'
-// Import routes (we'll create these next)
-// import authRoutes from '@/routes/auth';
-// import userRoutes from '@/routes/users';
+import userRoutes from '@/routes/users'
 
 /**
  * Express application class
@@ -116,7 +114,7 @@ class App {
 
         // Mount route modules (we'll create these next)
         this.app.use('/api/v1/info', infoRoutes)
-        // this.app.use('/api/v1/users', userRoutes);
+        this.app.use('/api/v1/users', userRoutes)
 
         // Default API response
         this.app.get('/api/v1', (_req, res) => {
