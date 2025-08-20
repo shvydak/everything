@@ -1,20 +1,20 @@
 import {Router} from 'express'
 import {
-    loginUser,
-    updateUser,
-    deleteUser,
-    getAllUsers,
-    getUserById,
     registerUser,
+    getAllUsersHandler,
+    getUserByIdHandler,
+    updateUserHandler,
+    deleteUserHandler,
+    getUserByEmailHandler,
 } from '../controllers/userController'
 
 const router = Router()
 
 router.post('/register', registerUser)
-router.post('/login', loginUser)
-router.get('/', getAllUsers)
-router.get('/:id', getUserById)
-router.put('/:id', updateUser)
-router.delete('/:id', deleteUser)
+router.get('/', getAllUsersHandler)
+router.get('/:id', getUserByIdHandler)
+router.get('/:email', getUserByEmailHandler)
+router.put('/:id', updateUserHandler)
+router.delete('/:id', deleteUserHandler)
 
 export default router

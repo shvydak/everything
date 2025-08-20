@@ -104,10 +104,16 @@ userSchema.pre('save', async function (next) {
 })
 
 // Instance method to compare password
+/**
+ * Compares a provided password with the user's hashed password.
+ * Returns true if the passwords match, false otherwise.
+ * Throws an error if the comparison fails.
+ */
 userSchema.methods['comparePassword'] = async function (
     candidatePassword: string
 ): Promise<boolean> {
     try {
+        // bcrypt.compare checks if the candidate password matches the stored hash
         return await bcrypt.compare(candidatePassword, this['password'])
     } catch (error) {
         throw new Error('Password comparison failed')
