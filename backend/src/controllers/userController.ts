@@ -9,6 +9,12 @@ import {
 } from '@/services/userService'
 import {generateToken} from '@/utils/jwt'
 import {IUser} from '@/types'
+import {
+    createUserResponse,
+    createErrorResponse,
+    validateUserData,
+    isAdminUser,
+} from '../utils/typeHelpers'
 
 export const registerUser = async (req: Request, res: Response) => {
     try {
@@ -17,18 +23,10 @@ export const registerUser = async (req: Request, res: Response) => {
 
         const token = generateToken(user as IUser)
 
-        return res.status(201).json({
-            success: true,
-            message: 'User registered successfully',
-            data: user,
-            token,
-        })
+        return res.status(201).json(createUserResponse(user, 'User registered successfully'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Registration failed',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(400).json(createErrorResponse('Registration failed', errorMessage))
     }
 }
 
@@ -39,52 +37,31 @@ export const loginUser = async (req: Request, res: Response) => {
         const user = await getUserByEmail(email)
 
         if (!user) {
-            return res.status(401).json({
-                success: false,
-                error: 'Invalid credentials',
-            })
+            return res.status(401).json(createErrorResponse('Invalid credentials'))
         }
 
         const isPasswordValid = await user.comparePassword(password)
 
         if (!isPasswordValid) {
-            return res.status(401).json({
-                success: false,
-                error: 'Invalid credentials',
-            })
+            return res.status(401).json(createErrorResponse('Invalid credentials'))
         }
 
         const token = generateToken(user as IUser)
 
-        return res.status(200).json({
-            success: true,
-            message: 'Login successful',
-            data: user,
-            token,
-        })
+        return res.status(200).json(createUserResponse({user, token}, 'Login successful'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Login failed',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(500).json(createErrorResponse('Login failed', errorMessage))
     }
 }
 
 export const getAllUsersHandler = async (_req: Request, res: Response) => {
     try {
         const users = await getAllUsers()
-        return res.status(200).json({
-            success: true,
-            message: 'Users fetched successfully',
-            data: users,
-        })
+        return res.status(200).json(createUserResponse(users, 'Users fetched successfully'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Failed to fetch users',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(500).json(createErrorResponse('Failed to fetch users', errorMessage))
     }
 }
 
@@ -94,23 +71,13 @@ export const getUserByIdHandler = async (req: Request, res: Response) => {
         const user = await getUserById(id as string)
 
         if (!user) {
-            return res.status(404).json({
-                success: false,
-                error: 'User not found',
-            })
+            return res.status(404).json(createErrorResponse('User not found'))
         }
 
-        return res.status(200).json({
-            success: true,
-            message: 'User fetched successfully',
-            data: user,
-        })
+        return res.status(200).json(createUserResponse(user, 'User fetched successfully'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Failed to fetch user',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(500).json(createErrorResponse('Failed to fetch user', errorMessage))
     }
 }
 
@@ -118,17 +85,10 @@ export const getUserByEmailHandler = async (req: Request, res: Response) => {
     try {
         const {email} = req.params
         const user = await getUserByEmail(email as string)
-        return res.status(200).json({
-            success: true,
-            message: 'User fetched successfully',
-            data: user,
-        })
+        return res.status(200).json(createUserResponse(user, 'User fetched successfully'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Failed to fetch user',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(500).json(createErrorResponse('Failed to fetch user', errorMessage))
     }
 }
 
@@ -137,17 +97,10 @@ export const updateUserHandler = async (req: Request, res: Response) => {
         const {id} = req.params
         const userData = req.body
         const user = await updateUser(id as string, userData)
-        return res.status(200).json({
-            success: true,
-            message: 'User updated successfully',
-            data: user,
-        })
+        return res.status(200).json(createUserResponse(user, 'User updated successfully'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Failed to update user',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(500).json(createErrorResponse('Failed to update user', errorMessage))
     }
 }
 
@@ -155,16 +108,9 @@ export const deleteUserHandler = async (req: Request, res: Response) => {
     try {
         const {id} = req.params
         const user = await deleteUser(id as string)
-        return res.status(200).json({
-            success: true,
-            message: 'User deleted successfully',
-            data: user,
-        })
+        return res.status(200).json(createUserResponse(user, 'User deleted successfully'))
     } catch (error) {
-        return res.status(500).json({
-            success: false,
-            error: 'Failed to delete user',
-            message: error instanceof Error ? error.message : 'Unknown error',
-        })
+        const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+        return res.status(500).json(createErrorResponse('Failed to delete user', errorMessage))
     }
 }

@@ -88,6 +88,9 @@ Always monitor user's learning progress and automatically update `.cursor/rules/
 3. **After user confirmation** - When user says they understand something
 4. **After successful testing** - When code works as expected
 5. **After learning session** - Summarize progress at end of session
+6. **ALWAYS when user says "зафиксируем прогресс"** - Update progress immediately
+7. **ALWAYS after major learning milestones** - Don't forget to update!
+8. **ALWAYS before suggesting next steps** - Ensure progress is current
 
 ### How to Update Progress:
 
