@@ -1,0 +1,276 @@
+---
+alwaysApply: true
+---
+
+# Project Configuration Tracking
+
+## 🎯 Configuration Monitoring Rules
+
+### Core Principle
+
+Always track and maintain up-to-date project configuration information to ensure:
+
+- Proper setup instructions
+- Correct dependencies and versions
+- Working development environment
+- Consistent project structure
+
+## 📁 Project Structure Tracking
+
+### Current Project Structure:
+
+```
+everything/
+├── .cursor/
+│   └── rules/           # Learning rules and progress
+├── backend/
+│   ├── src/
+│   │   ├── controllers/ # API controllers
+│   │   ├── services/    # Business logic
+│   │   ├── models/      # Database models
+│   │   ├── routes/      # API routes
+│   │   ├── middleware/  # Express middleware
+│   │   ├── utils/       # Utility functions
+│   │   ├── types/       # TypeScript types
+│   │   └── config/      # Configuration
+│   ├── package.json     # Backend dependencies
+│   ├── tsconfig.json    # TypeScript config
+│   └── .env             # Environment variables
+├── frontend/
+│   ├── src/
+│   │   ├── components/  # React components
+│   │   ├── pages/       # Page components
+│   │   ├── hooks/       # Custom hooks
+│   │   ├── utils/       # Utility functions
+│   │   ├── types/       # TypeScript types
+│   │   └── styles/      # CSS/styling
+│   ├── package.json     # Frontend dependencies
+│   ├── vite.config.ts   # Vite configuration
+│   └── tsconfig.json    # TypeScript config
+├── shared/              # Shared code between frontend/backend
+├── package.json         # Root package.json (monorepo)
+└── yarn.lock           # Yarn lock file
+```
+
+## 🔧 Technology Stack Tracking
+
+### Backend Stack:
+
+- **Runtime:** Node.js
+- **Framework:** Express.js
+- **Language:** TypeScript
+- **Database:** MongoDB + Mongoose
+- **Cache:** Redis
+- **Authentication:** JWT + bcrypt
+- **Package Manager:** Yarn
+- **Development:** Nodemon, ts-node
+
+### Frontend Stack:
+
+- **Framework:** React 18+
+- **Language:** TypeScript
+- **Build Tool:** Vite
+- **Package Manager:** Yarn
+- **Development:** Hot reload, TypeScript compilation
+
+### Development Tools:
+
+- **Package Manager:** Yarn (ALWAYS use yarn, never npm/npx)
+- **Code Quality:** ESLint, Prettier
+- **Version Control:** Git
+- **IDE:** VS Code with Cursor
+
+## 📦 Dependencies Tracking
+
+### Backend Dependencies (backend/package.json):
+
+```json
+{
+    "dependencies": {
+        "express": "^4.18.0",
+        "mongoose": "^7.0.0",
+        "redis": "^4.6.0",
+        "bcryptjs": "^2.4.3",
+        "jsonwebtoken": "^9.0.0",
+        "cors": "^2.8.5",
+        "helmet": "^7.0.0",
+        "dotenv": "^16.0.0"
+    },
+    "devDependencies": {
+        "typescript": "^5.0.0",
+        "nodemon": "^3.0.0",
+        "ts-node": "^10.9.0",
+        "tsconfig-paths": "^4.2.0",
+        "@types/express": "^4.17.0",
+        "@types/node": "^20.0.0"
+    }
+}
+```
+
+### Frontend Dependencies (frontend/package.json):
+
+```json
+{
+    "dependencies": {
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0"
+    },
+    "devDependencies": {
+        "@types/react": "^18.0.0",
+        "@types/react-dom": "^18.0.0",
+        "@vitejs/plugin-react": "^4.0.0",
+        "typescript": "^5.0.0",
+        "vite": "^5.0.0"
+    }
+}
+```
+
+## ⚙️ Configuration Files Tracking
+
+### TypeScript Configuration:
+
+- **backend/tsconfig.json** - Backend TypeScript settings
+- **frontend/tsconfig.json** - Frontend TypeScript settings
+- **Strict mode enabled** - No any types, strict null checks
+
+### Build Configuration:
+
+- **backend/nodemon.json** - Development server settings
+- **frontend/vite.config.ts** - Vite build configuration
+- **Root package.json** - Monorepo workspace configuration
+
+### Environment Configuration:
+
+- **backend/.env** - Backend environment variables
+- **backend/env.example** - Example environment variables
+- **frontend/.env** - Frontend environment variables (if needed)
+
+## 🚀 Development Commands Tracking
+
+### Root Commands (package.json):
+
+```json
+{
+    "scripts": {
+        "dev": "concurrently \"yarn dev:backend\" \"yarn dev:frontend\"",
+        "dev:backend": "cd backend && yarn dev",
+        "dev:frontend": "cd frontend && yarn dev",
+        "build": "yarn build:backend && yarn build:frontend",
+        "test": "yarn test:backend && yarn test:frontend",
+        "lint": "yarn lint:backend && yarn lint:frontend"
+    }
+}
+```
+
+### Backend Commands (backend/package.json):
+
+```json
+{
+    "scripts": {
+        "dev": "nodemon",
+        "build": "tsc",
+        "start": "node dist/index.js",
+        "test": "jest"
+    }
+}
+```
+
+### Frontend Commands (frontend/package.json):
+
+```json
+{
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build",
+        "preview": "vite preview",
+        "test": "vitest"
+    }
+}
+```
+
+## 🔄 Configuration Update Rules
+
+### When to Update Configuration:
+
+1. **New dependencies added** - Update package.json tracking
+2. **Configuration files changed** - Update config tracking
+3. **Project structure modified** - Update structure tracking
+4. **New scripts added** - Update commands tracking
+5. **Environment variables added** - Update env tracking
+
+### How to Update Configuration:
+
+1. **Check current state** - Verify what's actually in the project
+2. **Update tracking file** - Modify this configuration file
+3. **Verify consistency** - Ensure tracking matches reality
+4. **Document changes** - Note what was added/modified
+
+## 📊 Configuration Validation
+
+### Regular Checks:
+
+1. **Dependencies consistency** - All package.json files match tracking
+2. **Configuration files** - All config files exist and are correct
+3. **Scripts availability** - All documented scripts work
+4. **Environment setup** - All required env vars are documented
+
+### Validation Commands:
+
+```bash
+# Check if all dependencies are installed
+yarn install
+
+# Verify TypeScript compilation
+yarn build
+
+# Test development servers
+yarn dev:backend
+yarn dev:frontend
+
+# Check linting
+yarn lint
+```
+
+## 🎯 Configuration Best Practices
+
+### Always Track:
+
+1. **Package versions** - Exact versions for reproducibility
+2. **Configuration settings** - Important config options
+3. **Environment variables** - Required env vars
+4. **Development commands** - How to run the project
+5. **Project structure** - Current folder organization
+
+### Keep Updated:
+
+1. **After adding dependencies** - Update tracking immediately
+2. **After configuration changes** - Document the changes
+3. **After structural changes** - Update folder structure
+4. **Before sharing code** - Ensure tracking is current
+
+## 📝 Configuration Documentation
+
+### Setup Instructions:
+
+1. **Clone repository**
+2. **Install dependencies:** `yarn install`
+3. **Set up environment:** Copy `.env.example` to `.env`
+4. **Start development:** `yarn dev`
+
+### Development Workflow:
+
+1. **Backend development:** `yarn dev:backend`
+2. **Frontend development:** `yarn dev:frontend`
+3. **Full stack development:** `yarn dev`
+4. **Testing:** `yarn test`
+5. **Building:** `yarn build`
+
+---
+
+**Last Updated:** 2025-01-19
+**Next Review:** When configuration changes
+description:
+globs:
+alwaysApply: false
+
+---

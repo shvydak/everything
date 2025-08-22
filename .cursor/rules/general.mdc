@@ -11,7 +11,7 @@ Building a full-stack web application using modern technologies and best practic
 - **Backend**: Node.js + Express + TypeScript
 - **Frontend**: React + TypeScript
 - **Database**: MongoDB + Redis
-- **Package Manager**: Yarn
+- **Package Manager**: Yarn (ALWAYS use yarn, never npm/npx for package management)
 - **Testing**: Playwright (already familiar)
 - **Deployment**: Raspberry Pi 5 with Cloudflare Tunnel
 
@@ -43,6 +43,8 @@ Building a full-stack web application using modern technologies and best practic
 - Implement proper separation of concerns
 - Follow the principle of least privilege
 - Use environment variables for configuration
+- **ALWAYS use yarn** - never npm/npx for package management
+- **Monorepo structure** - use yarn workspaces for managing multiple packages
 
 ### 3. TypeScript Best Practices
 
