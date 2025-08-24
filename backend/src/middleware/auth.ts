@@ -1,8 +1,8 @@
-import {Request, Response, NextFunction} from 'express'
-import jwt from 'jsonwebtoken'
 import {serverConfig} from '@/config'
 import {User} from '@/models/User'
 import {AppError, AuthenticatedRequest} from '@/types'
+import {NextFunction, Request, Response} from 'express'
+import jwt from 'jsonwebtoken'
 
 /**
  * Authentication middleware

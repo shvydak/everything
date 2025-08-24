@@ -1,20 +1,15 @@
-import {Request, Response} from 'express'
 import {
     createUser,
+    deleteUser,
     getAllUsers,
+    getUserByEmail,
     getUserById,
     updateUser,
-    deleteUser,
-    getUserByEmail,
 } from '@/services/userService'
-import {generateToken} from '@/utils/jwt'
 import {IUser} from '@/types'
-import {
-    createUserResponse,
-    createErrorResponse,
-    validateUserData,
-    isAdminUser,
-} from '../utils/typeHelpers'
+import {generateToken} from '@/utils/jwt'
+import {Request, Response} from 'express'
+import {createErrorResponse, createUserResponse} from '../utils/typeHelpers'
 
 export const registerUser = async (req: Request, res: Response) => {
     try {
@@ -23,7 +18,9 @@ export const registerUser = async (req: Request, res: Response) => {
 
         const token = generateToken(user as IUser)
 
-        return res.status(201).json(createUserResponse(user, 'User registered successfully'))
+        return res
+            .status(201)
+            .json(createUserResponse({user, token}, 'User registered successfully'))
     } catch (error) {
         const errorMessage = error instanceof Error ? error.message : 'Unknown error'
         return res.status(400).json(createErrorResponse('Registration failed', errorMessage))
