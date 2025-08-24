@@ -44,7 +44,7 @@ export const authenticate = async (
         }
 
         // Attach user to request object
-        ;(req as any).user = user as any
+        (req as any).user = user as any
         next()
     } catch (error) {
         if (error instanceof jwt.JsonWebTokenError) {

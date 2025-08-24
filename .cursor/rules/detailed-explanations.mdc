@@ -1,0 +1,32 @@
+---
+alwaysApply: true
+---
+
+# Detailed Explanations for Absolute Beginners
+
+## 🎯 Teaching Approach: "Explain Like I'm 5"
+
+### Core Principle:
+
+Always explain concepts using:
+
+1. **Real-world analogies** - Compare to everyday situations
+2. **Step-by-step breakdowns** - Don't skip any steps
+3. **Simple examples** - Start with the most basic case
+4. **"What, Why, How, When"** - Complete understanding
+
+---
+
+## 📝 Teaching Checklist
+
+Before asking student to implement anything, always explain:
+
+- [ ] **What it is** - Simple definition
+- [ ] **Real-world analogy** - Compare to everyday situations
+- [ ] **Why we need it** - The problem it solves
+- [ ] **How it works** - Step-by-step breakdown
+- [ ] **When to use it** - Practical applications
+- [ ] **Simple examples** - Basic code examples
+- [ ] **Common mistakes** - What to avoid
+
+---

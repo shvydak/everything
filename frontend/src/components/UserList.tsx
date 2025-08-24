@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import {useAuth} from '../hooks/useAuth'
 
 interface User {
     _id: string
@@ -17,6 +18,7 @@ interface ApiResponse {
 }
 
 const UserList: React.FC = () => {
+    const {token} = useAuth() // Получаем токен из AuthContext
     const [users, setUsers] = useState<User[]>([])
     const [loading, setLoading] = useState<boolean>(true)
     const [error, setError] = useState<string>('')
@@ -26,7 +28,11 @@ const UserList: React.FC = () => {
             setLoading(true)
             setError('')
 
-            const response = await fetch('http://localhost:3001/api/v1/users')
+            const response = await fetch('http://localhost:3001/api/v1/users', {
+                headers: {
+                    Authorization: `Bearer ${token}`, // Добавляем токен в заголовок
+                },
+            })
             const data: ApiResponse = await response.json()
 
             if (data.success) {
@@ -42,8 +48,11 @@ const UserList: React.FC = () => {
     }
 
     useEffect(() => {
-        fetchUsers()
-    }, [])
+        if (token) {
+            // Загружаем пользователей только если есть токен
+            fetchUsers()
+        }
+    }, [token]) // Зависимость от token
 
     return (
         <div>

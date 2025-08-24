@@ -205,8 +205,15 @@ Building a full-stack web application using modern technologies and best practic
 - Confirm testing coverage
 - Validate performance considerations
 
-- Confirm testing coverage
-- Validate performance considerations
+### Learning Method:
+
+1. **Explain the concept** - Why we use it, how it works
+2. **Show examples** - Real code examples
+3. **Practice together** - Build features step by step
+4. **Review and understand** - Make sure you understand before moving on
+5. **ALWAYS explain new concepts in detail** - Break down unfamiliar syntax, patterns, and React concepts before asking student to implement them
+6. **Document new concepts in rules** - Add explanations of new patterns to learning rules for future reference
+7. **EXPLAIN LIKE FOR ABSOLUTE BEGINNERS** - Use real-world analogies, step-by-step breakdowns, and simple examples. Always provide "what it is", "why we need it", "how it works", and "when to use it" explanations before asking student to implement anything
 
 - Confirm testing coverage
 - Validate performance considerations

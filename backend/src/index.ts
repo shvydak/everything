@@ -50,7 +50,7 @@ class App {
         // CORS configuration
         this.app.use(
             cors({
-                origin: serverConfig.corsOrigin,
+                origin: true,
                 credentials: true,
                 methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
                 allowedHeaders: ['Content-Type', 'Authorization'],
